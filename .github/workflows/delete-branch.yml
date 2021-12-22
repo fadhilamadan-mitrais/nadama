@@ -1,4 +1,4 @@
-name: delete branch on close pr
+name: Delete Branch on Close PR
 
 on: 
   pull_request:
@@ -6,7 +6,9 @@ on:
   
 jobs:
   delete-branch:
+
     runs-on: ubuntu-latest
+
     steps:
       - name: delete branch
         uses: SvanBoxel/delete-merged-branch@main
