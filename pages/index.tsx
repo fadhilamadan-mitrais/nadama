@@ -1,20 +1,14 @@
+import { useState } from 'react';
+
+import { Post } from '~type/posts/post';
+import { listPosts } from '~utils/dummy/posts';
+
 import { Avatar, List, Space } from 'antd';
 import type { NextPage } from 'next';
 import Image from 'next/image';
 
 const Home: NextPage = () => {
-  const listData = [];
-  for (let i = 0; i < 23; i++) {
-    listData.push({
-      href: 'https://ant.design',
-      title: `Lorem ipsum part ${i}`,
-      avatar: 'https://joeschmoe.io/api/v1/random',
-      description:
-        'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-      content:
-        'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-    });
-  }
+  const [posts, setPots] = useState<Post[]>(listPosts);
 
   const IconText = ({ text }) => <Space>{text}</Space>;
 
@@ -27,9 +21,9 @@ const Home: NextPage = () => {
       itemLayout="vertical"
       size="large"
       pagination={{
-        pageSize: 3,
+        pageSize: 2,
       }}
-      dataSource={listData}
+      dataSource={posts}
       renderItem={(item) => (
         <List.Item
           key={item.title}
@@ -53,7 +47,7 @@ const Home: NextPage = () => {
             title={<a href={item.href}>{item.title}</a>}
             description={item.description}
           />
-          {item.content}
+          {item.body}
         </List.Item>
       )}
     />
