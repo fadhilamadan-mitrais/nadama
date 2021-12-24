@@ -1,11 +1,10 @@
 import { useState } from 'react';
 
-import { Post } from '~type/posts/post';
-import { listPosts } from '~utils/dummy/posts';
-
 import { Avatar, List, Space } from 'antd';
 import type { NextPage } from 'next';
 import Image from 'next/image';
+import { Post } from 'type/posts/post';
+import { listPosts } from 'utils/dummy/posts';
 
 const Home: NextPage = () => {
   const [posts, setPots] = useState<Post[]>(listPosts);

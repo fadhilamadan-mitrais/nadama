@@ -1,10 +1,9 @@
 import 'antd/dist/antd.css';
-import '~styles/globals.css';
-
-import LayoutFooter from '~components/layouts/footer';
-import LayoutNavbar from '~components/layouts/navbar';
+import 'styles/globals.css';
 
 import { Layout } from 'antd';
+import LayoutFooter from 'components/layouts/footer';
+import LayoutNavbar from 'components/layouts/navbar';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
