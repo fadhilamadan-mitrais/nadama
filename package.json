@@ -22,6 +22,7 @@
     "@types/react": "17",
     "eslint": "8",
     "eslint-config-next": "12",
+    "eslint-plugin-simple-import-sort": "^7",
     "jest": "^27",
     "prettier": "^2.5.1",
     "react-test-renderer": "^17",
