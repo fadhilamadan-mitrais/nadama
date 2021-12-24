@@ -1,15 +1,30 @@
-import React from 'react'
-import { render, screen } from '@testing-library/react'
-import Home from '../../pages'
+import React from 'react';
 
-describe('Home', () => {
-    it('renders a heading', () => {
-        render(<Home />)
+import { render } from '@testing-library/react';
+import Home from 'pages';
 
-        const heading = screen.getByRole('heading', {
-            name: /welcome to next\.js!/i,
-        })
+describe('test page index', () => {
+  beforeAll(() => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: jest.fn(), // Deprecated
+        removeListener: jest.fn(), // Deprecated
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      })),
+    });
+  });
 
-        expect(heading).toBeInTheDocument()
-    })
-})
+  const renderPage = () => {
+    return render(<Home />);
+  };
+
+  it('should render without crashing', () => {
+    expect(renderPage()).toBeTruthy();
+  });
+});
